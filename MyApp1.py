@@ -56,25 +56,32 @@ ptwd = st.slider("กรุณาเลือกข้อมูล petal.width",
 splen = st.number_input("กรุณาเลือกข้อมูล sepal.length")
 spwd = st.number_input("กรุณาเลือกข้อมูล sepal.width")
 
+from sklearn.neighbors import KNeighborsClassifier
+import numpy as np
 
 if st.button("ทำนายผล"):
-   #dt = pd.read_csv("./data/iris.csv") 
-   X = dt.drop('variety', axis=1)
-   y = dt.variety   
+    #ทำนาย
+    #dt = pd.read_csv("./data/iris.csv") 
+    X = dt.drop('variety', axis=1)
+    y = dt.variety 
+    st.button("ไม่ทำนายผล")
 
-   Knn_model = KNeighborsClassifier(n_neighbors=3)
-   Knn_model.fit(X, y)
+Knn_model = KNeighborsClassifier(n_neighbors=3)
+Knn_model.fit(X, y)
 
-   x_input = np.array([[ptlen, ptwd, splen, spwd]])
+#ข้อมูลสำหรับทดลองจำแนกข้อมูล
+x_input = np.array([[ptlen, ptwd, splen, spwd]])
 
-   st.write(Knn_model.predict(x_input))
-   out=Knn_model.predict(x_input)
-   if out[0]=="Setosa":
-      st.image("./pic/iris1.jpg")
-   elif out[0]=="Versicolor":
-      st.image("./pic/iris2.jpg")
-   else:
-      st.image("./pic/iris3.jpg")  
-   st.button("ไม่ทำนาย")
+#เอา input ไปทดสอบ
+st.write(Knn_model.predict(x_input))
+out=Knn_model.predict(x_input)
+
+if out[0]=="Setosa":
+    st.image("./pic/iris1.jpg")
+elif out[0]=="Versicolor":
+    st.image("./pic/iris2.jpg")
 else:
-   st.button("ไม่ทำนาย")
+    st.image("./pic/iris3.jpg")  
+st.button("ไม่ทำนาย")
+else:
+st.button("ไม่ทำนาย")
