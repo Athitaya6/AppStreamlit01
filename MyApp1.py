@@ -12,6 +12,7 @@ with col1:
     st.image('./pic/k1.jpg')
 with col2:
     st.image('./pic/iris.jpg')
+    
 
 html_1="""
 <div style="background-color:#63D767;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
@@ -40,3 +41,12 @@ if st.button("show bar chart"):
 else :
    st.button("Not show bar chart")
    
+   
+html_2 = """
+<div style="background-color:#FFBF00;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
+<center><h5>การทำนายคลาสดอกไม้</h5></center>
+</div>
+"""
+st.markdown(html_2, unsafe_allow_html=True)
+st.markdown("")
+
