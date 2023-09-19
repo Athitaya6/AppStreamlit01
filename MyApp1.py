@@ -66,22 +66,22 @@ if st.button("ทำนายผล"):
     y = dt.variety 
     st.button("ไม่ทำนายผล")
 
-Knn_model = KNeighborsClassifier(n_neighbors=3)
-Knn_model.fit(X, y)
+    Knn_model = KNeighborsClassifier(n_neighbors=3)
+    Knn_model.fit(X, y)
 
 #ข้อมูลสำหรับทดลองจำแนกข้อมูล
-x_input = np.array([[ptlen, ptwd, splen, spwd]])
+    x_input = np.array([[ptlen, ptwd, splen, spwd]])
 
 #เอา input ไปทดสอบ
-st.write(Knn_model.predict(x_input))
-out=Knn_model.predict(x_input)
+    st.write(Knn_model.predict(x_input))
+    out=Knn_model.predict(x_input)
 
-if out[0]=="Setosa":
-    st.image("./pic/iris1.jpg")
-elif out[0]=="Versicolor":
-    st.image("./pic/iris2.jpg")
+    if out[0]=="Setosa":    
+        st.image("./pic/iris1.jpg")
+    elif out[0]=="Versicolor":
+        st.image("./pic/iris2.jpg")
+    else:
+        st.image("./pic/iris3.jpg")  
+    st.button("ไม่ทำนาย")
 else:
-    st.image("./pic/iris3.jpg")  
-st.button("ไม่ทำนาย")
-else:
-st.button("ไม่ทำนาย")
+    st.button("ไม่ทำนาย")
