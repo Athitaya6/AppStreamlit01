@@ -1,5 +1,6 @@
 import streamlit as st 
 
-st.title('Athitaya')
-st.header('Athitaya')
-st.subheader('Athitaya')
+st.title('การทดสอบเขียนเว็บด้วย Python')
+st.header('นางสาวอฑิตยา กะการดี')
+st.subheader('สาขาวิทยาการข้อมูล')
+st.markdown("----")
